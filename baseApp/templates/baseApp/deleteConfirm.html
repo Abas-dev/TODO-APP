@@ -1,0 +1,20 @@
+{% extends 'baseApp/base.html' %}
+
+
+{% block title %}
+    confirm delete
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div id="container">
+            <h1 style="text-align:center">Delete item from list </h1>
+
+            <div style="text-align:center"> <br><br><br>
+                <p>Are you sure you want to delete "{{ object }}"?</p> <br>
+                <button type="submit" value="confirm" style="color:red">confirm</button>
+            </div>
+        
+    </form>
+{% endblock %}

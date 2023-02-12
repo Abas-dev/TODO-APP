@@ -7,14 +7,17 @@
 {% block content %}
 
 <div class="login-page">
+  <p style="color: wheat; font-size:x-large; text-align:left">REGISTATION PAGE</p>
+  <p style="color: wheat; font-size:small; text-align:left">pls fill in the below details for an account</p> <br>
     <div class="form">
-      <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="text" placeholder="firstname"/>
-        <input type="text" placeholder="lastname"/>
-        <input type="email" placeholder="email"/>
-        <input type="password" placeholder="password"/>
-        <button>login</button>
+      <form class="login-form" method="POST" action="{% url 'base:register' %}">
+        {% csrf_token %}
+        <input type="text" name = username placeholder="username"/>
+        <input type="text" name= firstName placeholder="firstname"/>
+        <input type="text" name= lastName placeholder="lastname"/>
+        <input type="email" name= email placeholder="email"/>
+        <input type="password" name= password placeholder="password"/>
+        <button type="submit" value="register">register</button>
         <p class="message">Not registered? <a href="login-pag">Create an account</a></p>
       </form>
     </div>

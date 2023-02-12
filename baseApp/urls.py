@@ -1,12 +1,19 @@
 from django.urls import path
 
-from .views import HomePage,LoginPage,RegisterPage,UpdatePage
+from .views import HomePageView,LoginPageView,RegisterPageView,UpdatePageView,CreatePageView,DeleteDataView,DisplayPageView
 
 app_name = 'base'
 
 urlpatterns = [
-    path('',HomePage.as_view(),name='homePage'),
-    path('login/',LoginPage.as_view(),name='login'),
-    path('register/',RegisterPage.as_view(),name='register'),
-    path('update/',UpdatePage.as_view(),name='update'),
+    path('',HomePageView.as_view(),name='homePage'),
+
+    path('login/',LoginPageView.as_view(),name='login'),
+    path('register/',RegisterPageView.as_view(),name='register'),
+
+    path('add/', CreatePageView.as_view(),name='add'),
+    path('detail/<int:pk>',DisplayPageView.as_view(), name='detail'),
+    path('delete/<int:pk>',DeleteDataView.as_view(),name='delete'),
+    path('update/<int:pk>',UpdatePageView.as_view(),name='update'),
+
+    #path('register/',registerForm,name='register')
 ]

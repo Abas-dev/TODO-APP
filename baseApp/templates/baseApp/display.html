@@ -1,0 +1,18 @@
+{% extends 'baseApp/base.html' %}
+
+{% block title %}
+    display
+{% endblock %}
+
+{% block content %}
+<div id="container">
+    <h1 style="text-align:center">To-Do List Details</h1>
+    
+    <div style="text-align:center"> <br><br><br>
+        <p>Title: {{data.title}}</p> <br><br><br> 
+        <p>Description: {{data.description}}</p>
+
+    </div>
+
+</div>
+{% endblock %}
