@@ -27,7 +27,7 @@ class LoginPageView(TemplateView):
 class RegisterPageView(CreateView):
     template_name = 'baseApp/register.html'
     form_class = UserCreationForm
-    success_url = reverse_lazy('base:login')
+    #success_url = reverse_lazy('base:login')
 
     def post(self, request, *args, **kwargs):
         username = self.request.POST['username']
@@ -37,7 +37,8 @@ class RegisterPageView(CreateView):
         lastName = self.request.POST['lastName']
         user = User.objects.create_user(username, password=password, first_name=firstName, last_name=lastName,email=email)
         user.save()
-        return super().post(request, *args, **kwargs)
+        return redirect('base:login')
+        #return super().post(request, *args, **kwargs)
 
         
 class UpdatePageView(UpdateView):
@@ -47,14 +48,16 @@ class CreatePageView(CreateView):
     template_name = 'baseApp/add.html'
     model = TodoTable
     fields = "__all__"
+    #success_url = reverse_lazy('base:homePage')
     def post(self, request, *args, **kwargs):
         userName = request.user
         topic = self.request.POST['topic']
         desc = self.request.POST['description']
         data = TodoTable(userName = userName, title = topic,description=desc)
         data.save()
-        return super().post(request, *args, **kwargs)
-    success_url = reverse_lazy('base:homePage')    
+        return redirect('base:homePage')
+        #return super().post(request, *args, **kwargs)
+        
         
 class DeleteDataView(DeleteView):
     model = TodoTable
