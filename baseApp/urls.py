@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import HomePageView,LoginPageView,RegisterPageView,UpdatePageView,CreatePageView,DeleteDataView,DisplayPageView
+from .views import HomePageView,LoginPageView,RegisterPageView,CreatePageView,DeleteDataView,DisplayPageView
 
 app_name = 'base'
 
@@ -13,7 +13,5 @@ urlpatterns = [
     path('add/', CreatePageView.as_view(),name='add'),
     path('detail/<int:pk>',DisplayPageView.as_view(), name='detail'),
     path('delete/<int:pk>',DeleteDataView.as_view(),name='delete'),
-    path('update/<int:pk>',UpdatePageView.as_view(),name='update'),
 
-    #path('register/',registerForm,name='register')
 ]

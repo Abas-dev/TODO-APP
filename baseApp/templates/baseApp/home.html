@@ -1,3 +1,4 @@
+
 {% extends 'baseApp/base.html' %}
 
 {% block title %}
@@ -5,12 +6,13 @@
 {% endblock %}
 
 {% block content %}
+    <p>{{request.user}}</p>
     <div id="container">
-    <h1>To-Do List <i class="fa fa-pencil" id="newTD"></i></h1>
-    <input type="text" placeholder="Add New To-Do">
+        
+    <h1>To-Do List <a href="{% url 'base:add' %}"><i class="fa fa-pencil" id="newTD"></i></a></h1>
     {% for data in data %}
         <ul>
-           <li><span><a href="{% url 'base:delete' data.id %}"><i class="fa fa-trash"></i></a></span> <a href="{% url 'base:detail' data.id %}">{{data.title}}</a></li>
+           <li><span><a href="{% url 'base:delete' data.todo_id %}"><i class="fa fa-trash"></i></a></span> <a href="{% url 'base:detail' data.todo_id %}">{{data.title}}</a></li>
         </ul>
     {% endfor %}
     

@@ -7,7 +7,7 @@
     {% csrf_token %}
 <div class="flex items-center justify-center p-12">
     <div class="mx-auto w-full max-w-[550px]">
-      <form action="https://formbold.com/s/FORM_ID" method="POST">
+     
         <div class="mb-5">
           <label
             for="name"
@@ -43,8 +43,8 @@
             class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none" type="submit" value="add">
             Submit
           </button>
+            <a href="{% url 'base:homePage' %}" class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">go to home</a>
         </div>
-      </form>
     </div>
   </div>
 </form>
