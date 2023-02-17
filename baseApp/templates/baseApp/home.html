@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <p>{{request.user}}</p>
+    <a href="{% url 'base:logout' %}">logout</a>
     <div id="container">
         
     <h1>To-Do List <a href="{% url 'base:add' %}"><i class="fa fa-pencil" id="newTD"></i></a></h1>
